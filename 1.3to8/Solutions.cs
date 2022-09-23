@@ -163,5 +163,51 @@ namespace CrackingTheCodeInterviewChapter1._1._3to8
 
             return resultMatrix;
         }
+
+        //1.7 - Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
+        public string[,] FindZeroInMatrixAndClearValues(string[,] originalMatrix)
+        {
+            string[,] resultMatrix = (string[,])originalMatrix.Clone();
+            int zeroColumn = -1;
+            int zeroRow = -1;
+
+            
+            for (int i = 0; i < resultMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultMatrix.GetLength(1); j++) 
+                {
+                    if (resultMatrix[i, j].Equals("0"))
+                    {
+                        zeroRow = i;
+                        zeroColumn = j;
+                        i = resultMatrix.GetLength(0);
+                        break;
+                    }
+                }
+            }
+            /*
+            [1][3][4]
+            [5][7][0] ->1,2
+            [5][6][7]
+            */
+
+            for (int i = 0; i < resultMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultMatrix.GetLength(1); j++)
+                {
+                    if (zeroRow == i || zeroColumn == j)
+                    {
+                        resultMatrix[i, j] = "0";
+                    }
+                }
+            }
+
+            //find if any value is zero
+            //find the row and column from the zero value
+            //use those values to clear row and columns
+
+            return resultMatrix;
+
+        }
     }
 }

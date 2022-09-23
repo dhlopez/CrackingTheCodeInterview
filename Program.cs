@@ -41,7 +41,15 @@ namespace CrackingTheCodeInterviewChapter1
             //Console.WriteLine(solutions.ReplaceSpaces("test and test2"));
 
             //1.6 - NxN matrix, rotate the image by 90 degrees
-            solutions.RotateMatrix90Degrees(3);
+            //solutions.RotateMatrix90Degrees(3);
+
+            //1.7 - f an element in an MxN matrix is 0, its entire row and column is set to 0.
+            string[,] originalMatrix = new string[3, 2] {
+                { "1", "2" }, 
+                { "4", "5" },
+                { "0", "6" }
+            };
+            solutions.FindZeroInMatrixAndClearValues(originalMatrix);
         }
     }
 }
